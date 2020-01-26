@@ -95,14 +95,5 @@ class skyapp
 }
 
 
-// static public function load($class)
-// {
-//     $class = str_replace('\\','/',$class);
-
-//     if(is_file(BASEAPP.$class.'.php')){
-//             include BASEAPP.$class.'.php';
-//     }else{
-//             return false;
-//     }
 
 ?>
