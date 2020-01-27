@@ -4,17 +4,20 @@ namespace core;
 
 use core\Route;
 use core\Register;
+use core\DoctrineDb;
 use core\common\Utilty;
 
 class skyapp
 {
     public  $appProtocal;
     public  $appRegister;
+    public $appDatabase;
 
     public function __construct()
     {
         
         $this->parse_app_protocal();
+        $this->loadDatabase();
         $this->run();
     }
 
@@ -23,6 +26,7 @@ class skyapp
         // echo  "當前協定:".$this->appProtocal->protocal."<br>";
         // echo  "當前app:".$this->appProtocal->url_host."<br>";
         // echo  "當前method:".$this->appProtocal->url_uri."<br>";
+        
 
         echo  "當前controller:".$this->appProtocal->controller."<br>";
         echo  "當前controller_method:".$this->appProtocal->controller_method."<br>";
@@ -31,7 +35,13 @@ class skyapp
         // echo "將實例化的類別".$instanceCall."<br>";
         $this->bindInstanceTotree($instanceCall);
         $this->execInstanceMethod($this->appProtocal->controller_method);
+    
+    }
 
+    private function loadDatabase()
+    {
+        $this->appDatabase = new  DoctrineDb();
+        Register::set('appDoctrine', $this->appDatabase);
     }
 
     private function parse_app_protocal()
@@ -81,6 +91,8 @@ class skyapp
     private function execInstanceMethod($method)
     {  
         $object = &Register::get($this->appProtocal->controller);
+
+         
 
         if(method_exists($object,$method)){
             $object->$method();

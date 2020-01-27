@@ -1,5 +1,13 @@
 {
     "require": {
-        "phpoffice/phpspreadsheet": "^1.10"
+        "phpoffice/phpspreadsheet": "^1.10",
+        "doctrine/orm": "*",
+        "illuminate/database": "^6.12"
+        
+    },
+    "autoload": {
+        "classmap": [
+            "app/model" 
+         ]
     }
 }
