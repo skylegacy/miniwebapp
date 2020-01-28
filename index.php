@@ -22,6 +22,7 @@ require  CORE.'/register.php';
 require  CORE.'/route.php';
 require  CORE.'/skyapp.php';
 require  CORE.'/database.php'; 
+require APP."/model/cat.php";
  
 
 // print_r( CORE.'/common');

@@ -48,7 +48,7 @@ class Dbtest
     {
         echo '測試eloquen<br>';
 
-        include "../model/cat.php";
+        
          
        $cats = Cat::all()->toArray();
  

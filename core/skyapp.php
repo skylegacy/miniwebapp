@@ -63,7 +63,7 @@ class skyapp
     
         // 解除基本路徑
         $classNamesp = str_replace(BASEAPP,"",$classLocate);
-       
+    
        // 解除.php
        $classNamesp = str_replace(strtolower($klass).".php",ucfirst($klass),$classNamesp);
      
@@ -92,12 +92,10 @@ class skyapp
     {  
         $object = &Register::get($this->appProtocal->controller);
 
-         
-
         if(method_exists($object,$method)){
             $object->$method();
         }else{
-     
+
             Utilty::p("查無此方法");
         }
 

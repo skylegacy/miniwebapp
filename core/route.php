@@ -15,6 +15,9 @@ class Route
     public $controller;
     public $controller_method;
 
+    public $slashArguments;
+    public $queryArguments;
+
     function __construct()
     {
             $this->protocal =  Utilty::current_ptotocal();
@@ -29,9 +32,27 @@ class Route
 
      private function parseMethod($url)
      {
-             $cutUri = explode("/",$url);
-             $this->controller =  $cutUri[1];
-             $this->controller_method = $cutUri[2];
+             $cutUri = explode("/",$url,4);
+             $first =  array_shift($cutUri);
+
+             $contrl =  array_shift($cutUri);
+             $this->controller =  $contrl;
+             $method =  array_shift($cutUri);
+            
+             $pureMethod =  explode("?",$method,2);
+             $this->controller_method =$pureMethod[0] ;
+             // 分為   問號參數 OR 斜槓參數
+        
+             $this->queryArguments = $pureMethod[1] ;
+             $this->slashArguments = $cutUri;
+             
+           
+                  echo  "---問號參數---";
+                  print_r($this->queryArguments);
+                  echo "<br>";
+                  echo  "---斜槓參數---";
+                  print_r($this->slashArguments);
+                  echo "<br>";
      }
 
      public function loadController($class)
