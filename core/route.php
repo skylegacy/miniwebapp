@@ -42,17 +42,23 @@ class Route
              $pureMethod =  explode("?",$method,2);
              $this->controller_method =$pureMethod[0] ;
              // 分為   問號參數 OR 斜槓參數
-        
-             $this->queryArguments = $pureMethod[1] ;
+             
              $this->slashArguments = $cutUri;
              
-           
+           if( isset($pureMethod[1])){
+               $this->queryArguments = $pureMethod[1];
                   echo  "---問號參數---";
-                  print_r($this->queryArguments);
+                  print_r();
                   echo "<br>";
+           }
+
+           if($this->slashArguments!=null){
                   echo  "---斜槓參數---";
                   print_r($this->slashArguments);
                   echo "<br>";
+           }
+                  
+                  
      }
 
      public function loadController($class)

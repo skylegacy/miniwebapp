@@ -1,2 +1,4 @@
 /vendor
 /upload
+/start.php
+/core/database.php

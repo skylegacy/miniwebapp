@@ -10,14 +10,23 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
  $capsule = new Capsule;
 
- $capsule->addConnection([
-    "driver" => "mysql",
-    "host" =>"127.0.0.1",
-    "database" => "app_isl",
-    "username" => "sky",
-    "password" => "sky9446080",
-    'charset'=>'utf8mb4'
- ]);
+//  $capsule->addConnection([
+//     "driver" => "mysql",
+//     "host" =>"61.58.100.163",
+//     "database" => "app_isl",
+//     "username" => "sky",
+//     "password" => "sky9446080",
+//     'charset'=>'utf8mb4'
+//  ]);
+
+$capsule->addConnection([
+   "driver" => "mysql",
+   "host" =>"127.0.0.1",
+   "database" => "app_isl",
+   "username" => "root",
+   "password" => "123456789",
+   'charset'=>'utf8mb4'
+]);
 
 //Make this Capsule instance available globally. *要让 capsule 能在全局使用
  $capsule->setAsGlobal();

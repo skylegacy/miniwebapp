@@ -34,7 +34,7 @@ class Dbtest
        
         // $stmt->execute();
 
-        $queryBuilder = $this->db ->conn->createQueryBuilder();
+        $queryBuilder = $this->db->conn->createQueryBuilder();
 
         $queryBuilder->select('*')->from('isl_vidcats');
         $stm = $queryBuilder->execute();
@@ -52,8 +52,13 @@ class Dbtest
          
        $cats = Cat::all()->toArray();
  
-       echo "<pre>";
-        print_r($cats);
+       foreach($cats as $item){
+        echo "<pre>";
+        echo $item['cat_id'];
+        echo $item['cat_desc'];
+       }
+       
+        // print_r($cats);
     } 
 }
 

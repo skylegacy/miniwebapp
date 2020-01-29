@@ -9,12 +9,21 @@ use Doctrine\ORM\EntityManager;
 class DoctrineDb
 {
 
+        // private  $dbParams = array(
+        //     'driver'   => 'pdo_mysql',
+        //     'user'     => 'sky',
+        //     'password' => 'sky9446080',
+        //     'dbname'   => 'app_isl',
+        //     'host' => '61.58.100.163',
+        //     'charset'=>'utf8mb4'
+        // );
+
         private  $dbParams = array(
             'driver'   => 'pdo_mysql',
-            'user'     => 'sky',
-            'password' => 'sky9446080',
+            'user'     => 'root',
+            'password' => '123456789',
             'dbname'   => 'app_isl',
-            'host' => '61.58.100.163',
+            'host' => '127.0.0.1',
             'charset'=>'utf8mb4'
         );
 
